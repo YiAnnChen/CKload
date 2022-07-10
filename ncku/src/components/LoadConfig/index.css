@@ -1,0 +1,20 @@
+.title{
+    font-size:x-large;
+    margin-bottom: 5%;
+    justify-content: center;
+    margin-left: 20%;
+}
+
+.box{
+    width: 60%;
+    margin: auto;
+    background: rgb(255, 255, 255);
+    border: 2px solid ;
+    border-radius: 20px;
+  }
+.border-img{
+    -moz-border-image: -moz-linear-gradient(top left, #d53a3a 0%, #691414 100%);
+    -webkit-border-image: -webkit-linear-gradient(top left, #d53a3a 0%, #691414 100%);
+    border-image: linear-gradient(to bottom right, #d53a3a 0%, #691414 100%);
+    
+}
