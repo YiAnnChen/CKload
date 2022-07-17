@@ -1,18 +1,68 @@
 [
   {
-    "id": 1,
     "updateDate": "July 01 2022, 12:24PM",
     "testName": "test 1",
-    "users": "60",
     "ThreadGroups":[
       {
         "on_sampler_error": "continue",
-        "LoopController":[
+        "LoopController":
+          {
+          "continue_forever": false,
+          "loops": 10
+          },
+        "num_threads": 20,
+        "ramp_time": 5,
+        "scheduler": true,
+        "duration": 30,
+        "delay": 10,
+        "same_user_on_next_iteration": true,
+        "delayedStart": true
+      },
+      {
+        "on_sampler_error": "continue",
+        "LoopController":
+          {
+          "continue_forever": false,
+          "loops": 15
+          }
+        ,
+        "num_threads": 40,
+        "ramp_time": 5,
+        "scheduler": true,
+        "duration": 50,
+        "delay": 10,
+        "same_user_on_next_iteration": true,
+        "delayedStart": true
+      },
+      {
+        "on_sampler_error": "start_next_thread_loop",
+        "LoopController":
+          {
+          "continue_forever": false,
+          "loops": 20
+          }
+        ,
+        "num_threads": 60,
+        "ramp_time": 5,
+        "scheduler": true,
+        "duration": 130,
+        "delay": 10,
+        "same_user_on_next_iteration": true,
+        "delayedStart": true
+      }
+    ]
+  },
+  {
+    "updateDate": "July 05 2022, 11:02PM",
+    "testName": "test 2",
+    "ThreadGroups":[
+      {
+        "on_sampler_error": "start_next_thread_loop",
+        "LoopController":
           {
           "continue_forever": false,
           "loops": 1
-          }
-        ],
+          },
         "num_threads": 20,
         "ramp_time": 5,
         "scheduler": true,
@@ -21,31 +71,149 @@
         "same_user_on_next_iteration": true,
         "delayedStart": true
       }
-    ],
-    "threadGroupNum": 1
+    ]
   },
   {
-    "id": 2,
-    "updateDate": "July 05 2022, 11:02PM",
-    "testName": "test 2",
-    "users": "20"
-  },
-  {
-    "id": 3,
     "updateDate": "July 06 2022, 11:05PM",
     "testName": "test 3",
-    "users": "100"
+    "ThreadGroups":[
+      {
+        "on_sampler_error": "stop_thread",
+        "LoopController":
+          {
+          "continue_forever": false,
+          "loops": 1
+          },
+        "num_threads": 20,
+        "ramp_time": 5,
+        "scheduler": true,
+        "duration": 100,
+        "delay": 10,
+        "same_user_on_next_iteration": true,
+        "delayedStart": true
+      },
+      {
+        "on_sampler_error": "continue",
+        "LoopController":
+          {
+          "continue_forever": false,
+          "loops": 1
+          }
+        ,
+        "num_threads": 40,
+        "ramp_time": 5,
+        "scheduler": true,
+        "duration": 200,
+        "delay": 10,
+        "same_user_on_next_iteration": true,
+        "delayedStart": true
+      }
+    ]
   },
   {
-    "id": 4,
     "updateDate": "July 01 2022, 12:43PM",
     "testName": "test 4",
-    "users": "200"
+    "ThreadGroups":[
+      {
+        "on_sampler_error": "stop_test",
+        "LoopController":
+          {
+          "continue_forever": false,
+          "loops": 1
+          },
+        "num_threads": 20,
+        "ramp_time": 5,
+        "scheduler": true,
+        "duration": 100,
+        "delay": 10,
+        "same_user_on_next_iteration": true,
+        "delayedStart": true
+      },
+      {
+        "on_sampler_error": "stop_test_now",
+        "LoopController":
+          {
+          "continue_forever": false,
+          "loops": 1
+          }
+        ,
+        "num_threads": 40,
+        "ramp_time": 5,
+        "scheduler": true,
+        "duration": 200,
+        "delay": 10,
+        "same_user_on_next_iteration": true,
+        "delayedStart": true
+      }
+    ]
   },
   {
-    "id": 5,
     "updateDate": "July 03 2022, 12:30PM",
     "testName": "test 5",
-    "users": "20"
+    "ThreadGroups":[
+      {
+        "on_sampler_error": "stop_test_now",
+        "LoopController":
+          {
+          "continue_forever": false,
+          "loops": 1
+          },
+        "num_threads": 20,
+        "ramp_time": 5,
+        "scheduler": true,
+        "duration": 100,
+        "delay": 10,
+        "same_user_on_next_iteration": true,
+        "delayedStart": true
+      },
+      {
+        "on_sampler_error": "stop_test_now",
+        "LoopController":
+          {
+          "continue_forever": false,
+          "loops": 1
+          }
+        ,
+        "num_threads": 40,
+        "ramp_time": 5,
+        "scheduler": true,
+        "duration": 200,
+        "delay": 10,
+        "same_user_on_next_iteration": true,
+        "delayedStart": true
+      },
+      {
+        "on_sampler_error": "continue",
+        "LoopController":
+          {
+          "continue_forever": false,
+          "loops": 1
+          }
+        ,
+        "num_threads": 40,
+        "ramp_time": 5,
+        "scheduler": true,
+        "duration": 200,
+        "delay": 10,
+        "same_user_on_next_iteration": true,
+        "delayedStart": true
+      },
+      {
+        "on_sampler_error": "continue",
+        "LoopController":
+          {
+          "continue_forever": false,
+          "loops": 1
+          }
+        ,
+        "num_threads": 40,
+        "ramp_time": 5,
+        "scheduler": true,
+        "duration": 200,
+        "delay": 10,
+        "same_user_on_next_iteration": true,
+        "delayedStart": true
+      }
+    ]
   }
 ]
