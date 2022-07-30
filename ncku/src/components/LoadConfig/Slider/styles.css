@@ -1,0 +1,12 @@
+.load-config-slider {
+  flex: 1;
+
+}
+
+.load-config-slider::-webkit-slider-runnable-track {
+  width: 100%;
+
+
+}
+
+.load-config-slider::-webkit-slider-thumb {}

@@ -1,12 +1,15 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
 
+import './styles.css'
+
 const sliderThumbStyles = (props) => (`
-  width: 1rem;
-  height: 1rem;
+  width: 1.2rem;
+  height: 1.25rem;
   background: #fff;
   cursor: pointer;
-  outline: solid #808080;
+  box-shadow: rgba(0, 9, 70, 0.4) 1px 4px 8px 0px;
+  border-color: light-gray;
   border-radius: 50%;
 `);
 
@@ -21,14 +24,16 @@ const Styles = styled.div`
     flex: 1;
     font-size: 1.25rem;
   }
+
   .slider {
     flex: 1; // changes the size of the slider bar
     -webkit-appearance: none;
     width: 100%;
-    height: 1rem;
+    height: 0.75rem;
     border-radius: 0.5rem;
     background: #efefef;
     outline: none;
+
     &::-webkit-slider-thumb {
       -webkit-appearance: none;
       appearance: none;
@@ -39,6 +44,11 @@ const Styles = styled.div`
     }
   }
 `;
+
+const InputRange = styled.input`
+  flex: 1; // length of the slider bar
+
+`
 
 function Slider(props) {
 
@@ -53,7 +63,9 @@ function Slider(props) {
     <>
         <div>{props.sliderName}</div>
         <Styles>
-          <input type="range" min={props.min} max={props.max} step={props.step} value={value} className="slider" onChange={handleOnChange} />
+          {/* <input type="range" min={props.min} max={props.max} step={props.step} value={value} className="slider" onChange={handleOnChange} /> */}
+          {/* <InputRange type="range" min={props.min} max={props.max} step={props.step} value={value} onChange={handleOnChange}/> */}
+          <input type='range' className='load-config-slider' min={props.min} max={props.max} step={props.step} value={value} onChange={handleOnChange}/>
           <div className="value">{value}</div>
         </Styles>
     </>

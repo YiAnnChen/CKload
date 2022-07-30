@@ -4,11 +4,11 @@ import React, {
 import './TestsList.css'
 
 // Mock data - array of data: pretend we called an API and this is the data that we got back
-import data from '../../mock-data.json'
+import mockData from '../../mock-data.json'
 
 const TestsList = () => {
 
-  const [testData, setTestData] = useState(data);
+  const [testData, setTestData] = useState(mockData);
 
   function handleTestClick(e) {
     console.log('test was clicked')
@@ -64,8 +64,8 @@ const TestsList = () => {
           </tr>
         </thead>
         <tbody>
-          {console.log(data.length)}
-          { data.length ?
+          {console.log(mockData.length)}
+          { mockData.length ?
           testData.map((data, index)=>
             <tr key={index}>
               <td className='list-item'><a href={'http://localhost:3000/tests/'+data.testName} onClick={handleTestClick}>{data.testName}</a></td>
@@ -90,7 +90,7 @@ const TestsList = () => {
               <td className='list-item'><a href='#' onClick={handleReportClick}>Report</a></td>
             </tr>
           )
-          :<div>empty</div>}
+          :<div>empty</div>} {/* TODO: Change this later! */}
         </tbody>
       </table>
     </div>

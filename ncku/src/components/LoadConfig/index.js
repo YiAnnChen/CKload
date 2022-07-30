@@ -8,19 +8,14 @@ import './index.css'
 
 const Container = styled.div`
   display: absolute;
-  margin: auto;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-  // border-style: solid;
-  // border-width: thin;
-  border-radius: 20px;
+  margin: auto auto 2rem auto;
   width: 60%;
   padding: 20px;
   align-items: center;
-  -webkit-box-shadow: 0px 5px 33px -21px #891919;
-  -moz-box-shadow: 0px 5px 33px -21px #891919;
-  box-shadow: 0px 5px 33px -21px #891919;
-  
+  // -webkit-box-shadow: 0px 5px 33px -21px #891919;
+  // -moz-box-shadow: 0px 5px 33px -21px #891919;
+  // box-shadow: 0px 5px 33px -21px #891919;
+  box-shadow: rgba(0, 9, 61, 0.2) 0px 4px 8px 0px;
 `
 
 function LoadConfig(props) {
@@ -36,7 +31,7 @@ function LoadConfig(props) {
     <>
       <Container className="box border-img">
         <ul>
-        <div className="title">LOAD CONFIGURATION  - {props.name}</div>
+        <div className="title">Load Configuration - {props.name}</div>
         <Slider sliderName="Users" min={20} max={200} step={20} value={20}/>
         <Slider sliderName="Ramp-up period (seconds)" value={0}/>
         <Slider sliderName="Loop Count" value={0}/>

@@ -8,6 +8,8 @@ import {useDropzone} from 'react-dropzone'
 import styled from 'styled-components'
 import axios from 'axios'
 
+import './styles.css'
+
 // // Redux for handling passing frontend/backend values
 // import { configureStore } from '@reduxjs/toolkit'
 
@@ -23,18 +25,27 @@ import axios from 'axios'
 
 const Container = styled.div`
   display: flex;
-  width: 50%;
+  width: 40%;
   justify-content: center;
-  margin: auto;
+  margin: 2.5rem 2rem 2.5rem auto;
   padding: 20px;
-  border-color: #c60021;;
+  // border-color: #c60021;
   border-style: solid;
   border-radius: 20px;
-  -webkit-box-shadow: 0px 5px 33px -21px rgba(66, 68, 90, 1);
-  -moz-box-shadow: 0px 5px 33px -21px rgba(66, 68, 90, 1);
-  box-shadow: 0px 5px 33px -21px rgba(66, 68, 90, 1);
+  // -webkit-box-shadow: 0px 5px 33px -21px rgba(66, 68, 90, 1);
+  // -moz-box-shadow: 0px 5px 33px -21px rgba(66, 68, 90, 1);
+  // box-shadow: 0px 5px 33px -21px rgba(66, 68, 90, 1);
   outline: none;
   cursor: ${props => props.uploadState ? "default" : "pointer"};
+
+  border-color: white;
+  color: #3d6098;
+  background-color: white;
+  box-shadow: rgba(0, 9, 61, 0.2) 0px 4px 8px 0px;
+`
+
+const UploadImg = styled.img`
+  height: 10%;
 `
 
 const instance = axios.create({
@@ -117,7 +128,13 @@ function DropzoneComponent(props) {
         // Display this before file is uploaded
         : <Container uploadState={isFileUploaded} {...getRootProps({})}>
             <input {...getInputProps()} />
-            <>Drag and drop jmx file</>
+            {/* Test */}
+            <div className='drop-text'>
+              {/* <UploadImg src={} alt='Upload Image' /> */}
+              <h4>Drag and drop JMX file here</h4>
+              <h4>-OR-</h4>
+              <h4>Click to browse</h4>
+            </div>
           </Container>
       }
     </>
