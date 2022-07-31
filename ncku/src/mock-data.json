@@ -12,11 +12,11 @@
           },
         "num_threads": 20,
         "ramp_time": 5,
-        "scheduler": true,
+        "scheduler": false,
         "duration": 30,
         "delay": 10,
         "same_user_on_next_iteration": true,
-        "delayedStart": true
+        "delayed_start": false
       },
       {
         "on_sampler_error": "continue",
@@ -27,12 +27,12 @@
           }
         ,
         "num_threads": 40,
-        "ramp_time": 5,
+        "ramp_time": 20,
         "scheduler": true,
         "duration": 50,
         "delay": 10,
         "same_user_on_next_iteration": true,
-        "delayedStart": true
+        "delayed_start": false
       },
       {
         "on_sampler_error": "start_next_thread_loop",
@@ -48,7 +48,7 @@
         "duration": 130,
         "delay": 10,
         "same_user_on_next_iteration": true,
-        "delayedStart": true
+        "delayed_start": true
       }
     ]
   },
@@ -69,7 +69,7 @@
         "duration": 100,
         "delay": 10,
         "same_user_on_next_iteration": true,
-        "delayedStart": true
+        "delayed_start": true
       }
     ]
   },
@@ -90,7 +90,7 @@
         "duration": 100,
         "delay": 10,
         "same_user_on_next_iteration": true,
-        "delayedStart": true
+        "delayed_start": true
       },
       {
         "on_sampler_error": "continue",
@@ -106,7 +106,7 @@
         "duration": 200,
         "delay": 10,
         "same_user_on_next_iteration": true,
-        "delayedStart": true
+        "delayed_start": true
       }
     ]
   },
@@ -127,7 +127,7 @@
         "duration": 100,
         "delay": 10,
         "same_user_on_next_iteration": true,
-        "delayedStart": true
+        "delayed_start": true
       },
       {
         "on_sampler_error": "stop_test_now",
@@ -143,7 +143,7 @@
         "duration": 200,
         "delay": 10,
         "same_user_on_next_iteration": true,
-        "delayedStart": true
+        "delayed_start": true
       }
     ]
   },
@@ -164,7 +164,7 @@
         "duration": 100,
         "delay": 10,
         "same_user_on_next_iteration": true,
-        "delayedStart": true
+        "delayed_start": true
       },
       {
         "on_sampler_error": "stop_test_now",
@@ -180,7 +180,7 @@
         "duration": 200,
         "delay": 10,
         "same_user_on_next_iteration": true,
-        "delayedStart": true
+        "delayed_start": true
       },
       {
         "on_sampler_error": "continue",
@@ -196,7 +196,7 @@
         "duration": 200,
         "delay": 10,
         "same_user_on_next_iteration": true,
-        "delayedStart": true
+        "delayed_start": true
       },
       {
         "on_sampler_error": "continue",
@@ -212,7 +212,7 @@
         "duration": 200,
         "delay": 10,
         "same_user_on_next_iteration": true,
-        "delayedStart": true
+        "delayed_start": true
       }
     ]
   }

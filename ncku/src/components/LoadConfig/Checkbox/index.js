@@ -16,9 +16,8 @@ function Checkbox(props) {
 
   return(
     <>
-        
         <Styles>
-          <input type="checkbox"/>
+          <input type="checkbox" defaultChecked={props.checked} />
           <div className="nameLabel">{props.checkboxName}</div>
         </Styles>
     </>

@@ -1,6 +1,5 @@
-import React, {
-  useState
-} from 'react'
+import React, { useState } from 'react'
+import { Link } from "react-router-dom";
 import './TestsList.css'
 
 // Mock data - array of data: pretend we called an API and this is the data that we got back
@@ -9,10 +8,6 @@ import mockData from '../../mock-data.json'
 const TestsList = () => {
 
   const [testData, setTestData] = useState(mockData);
-
-  function handleTestClick(e) {
-    console.log('test was clicked')
-  }
 
   function handleRunTestClick(e) {
     e.preventDefault();
@@ -68,7 +63,18 @@ const TestsList = () => {
           { mockData.length ?
           testData.map((data, index)=>
             <tr key={index}>
-              <td className='list-item'><a href={'http://localhost:3000/tests/'+data.testName} onClick={handleTestClick}>{data.testName}</a></td>
+              <td className='list-item'>
+                <Link 
+                to={{
+                  pathname: data.testName,
+                  search: "?sort=name",
+                  hash: "#the-hash"
+                }}
+                state={{
+                  data: data
+                }}
+                >{data.testName}</Link>
+              </td>
               <td className='list-item'>{data.updateDate}</td>
               <td className='list-item'>{
                 /* Maps out the list of users... */

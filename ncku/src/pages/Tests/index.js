@@ -1,4 +1,5 @@
-import React, {useState} from 'react';
+import React from 'react';
+import { useLocation } from "react-router-dom";
 import styled from 'styled-components';
 
 import DropzoneComponent from '../../components/DropzoneComponent';
@@ -6,16 +7,20 @@ import LoadConfig from '../../components/LoadConfig'
 
 import './index.css'
 
-import mockData from '../../mock-data.json'
-
 const Container = styled.div`
   justify-content: center;
   padding: 1rem;
 `
 
-const Tests = () => {
+function Tests() {
 
-  const [testData, setTestData] = useState(mockData);
+  const location = useLocation();
+  console.log(location.state.data.ThreadGroups.length)
+
+  // TODO: Error handling
+  const tg = location.state.data.ThreadGroups;
+  const tg_length = location.state.data.ThreadGroups.length;
+  
 
   return (
     <>
@@ -35,14 +40,26 @@ const Tests = () => {
           </div>
         </div>
 
-        {/* TODO: Use a for loop to create Loadconfigs */}
-        { 
-
+        {/* Uses loop to create multiple Load Config Components */}
+        { tg_length ? 
+        tg.map((data, index) =>
+        <LoadConfig key={index}
+        name='threadgroup'
+        users={data.num_threads}
+        ramp_time={data.ramp_time}
+        duration={data.duration}
+        delay={data.delay}
+        on_sampler_error={data.on_sampler_error}
+        //  Boolean values
+        same_user_on_next_iteration={data.same_user_on_next_iteration}
+        scheduler={data.scheduler}
+        delayed_start={data.delayed_start}
+        />
+        )
+        :
+        // TODO: No thread groups
+        <React.Fragment>ERROR</React.Fragment>
         }
-
-        <LoadConfig name='threadgroup1'/>
-        <LoadConfig name='threadgroup2'/>
-        <LoadConfig name='threadgroup3'/>
       </Container>
     </>
   )

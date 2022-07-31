@@ -21,7 +21,7 @@ const Container = styled.div`
 function LoadConfig(props) {
 
   // States
-  const [samplerValue, setSamplerValue] = useState("continue");
+  const [samplerValue, setSamplerValue] = useState(props.on_sampler_error);
 
   function handleOnRadioChange(e) {
     setSamplerValue(e.target.value);
@@ -32,25 +32,25 @@ function LoadConfig(props) {
       <Container className="box border-img">
         <ul>
         <div className="title">Load Configuration - {props.name}</div>
-        <Slider sliderName="Users" min={20} max={200} step={20} value={20}/>
-        <Slider sliderName="Ramp-up period (seconds)" value={0}/>
-        <Slider sliderName="Loop Count" value={0}/>
-        <Checkbox checkboxName="Same user on each iteration" type="checkbox"/>
-        <Checkbox checkboxName="Delay Thread creation until needed" type="checkbox"/>
+        <Slider sliderName="Users" min={20} max={200} step={20} value={props.users} />
+        <Slider sliderName="Ramp-up period (seconds)" value={props.ramp_time} />
+        <Slider sliderName="Loop Count" value={0} />
+        <Checkbox checkboxName="Same user on each iteration" type="checkbox" checked={props.same_user_on_next_iteration} />
+        <Checkbox checkboxName="Delay Thread creation until needed" type="checkbox" checked={props.delayed_start} />
         
         </ul>
         <ul>
-        <Checkbox checkboxName="Specify Thread lifetime" name="isUserIteration" type="checkbox"/>
-        <Slider sliderName="Duration (seconds)" value={0}/>
-        <Slider sliderName="Startup delay (seconds)" value={0}/>
+        <Checkbox checkboxName="Specify Thread lifetime" name="isUserIteration" type="checkbox" checked={props.scheduler} />
+        <Slider sliderName="Duration (seconds)" value={props.duration} />
+        <Slider sliderName="Startup delay (seconds)" value={props.delay} />
         <>
           <>Action to take after a Sampler error:</>
           <div>
-            <RadioBtn value="continue" currentValue={samplerValue} text="Continue" handler={handleOnRadioChange}/>
-            <RadioBtn value="startNextThread" currentValue={samplerValue} text="Start Next Thread Loop" handler={handleOnRadioChange}/>
-            <RadioBtn value="stopThread" currentValue={samplerValue} text="Stop Thread" handler={handleOnRadioChange}/>
-            <RadioBtn value="stopTest" currentValue={samplerValue} text="Stop Test" handler={handleOnRadioChange}/>
-            <RadioBtn value="stopTestForce" currentValue={samplerValue} text="Stop Test Now" handler={handleOnRadioChange}/>
+            <RadioBtn value="continue" currentValue={samplerValue} text="Continue" handler={handleOnRadioChange} />
+            <RadioBtn value="start_next_thread_loop" currentValue={samplerValue} text="Start Next Thread Loop" handler={handleOnRadioChange} />
+            <RadioBtn value="stop_thread" currentValue={samplerValue} text="Stop Thread" handler={handleOnRadioChange} />
+            <RadioBtn value="stop_test" currentValue={samplerValue} text="Stop Test" handler={handleOnRadioChange} />
+            <RadioBtn value="stop_test_now" currentValue={samplerValue} text="Stop Test Now" handler={handleOnRadioChange} />
           </div>
         </>
         </ul>
