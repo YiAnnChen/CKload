@@ -65,7 +65,15 @@ function Slider(props) {
         <Styles>
           {/* <input type="range" min={props.min} max={props.max} step={props.step} value={value} className="slider" onChange={handleOnChange} /> */}
           {/* <InputRange type="range" min={props.min} max={props.max} step={props.step} value={value} onChange={handleOnChange}/> */}
-          <input type='range' className='load-config-slider' min={props.min} max={props.max} step={props.step} value={value} onChange={handleOnChange}/>
+          <input
+            type='range'
+            className='load-config-slider'
+            min={props.min}
+            max={props.max}
+            step={props.step}
+            value={value}
+            onChange={handleOnChange}
+          />
           <div className="value">{value}</div>
         </Styles>
     </>

@@ -7,7 +7,7 @@ import mockData from '../../mock-data.json'
 
 const TestsList = () => {
 
-  const [testData, setTestData] = useState(mockData);
+  const [testData] = useState(mockData);
 
   function handleRunTestClick(e) {
     e.preventDefault();
@@ -34,9 +34,6 @@ const TestsList = () => {
     /* Create New Test --> redirect to a new page */
     console.log('creating new test');
   }
-
-{/* TODO: when the list is empty -> do something*/} 
-
   return(
     <div className='testslist-container'>
       <div className='testslist-top'>

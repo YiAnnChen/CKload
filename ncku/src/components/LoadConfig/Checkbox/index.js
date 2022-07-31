@@ -15,12 +15,10 @@ const Styles = styled.div`
 function Checkbox(props) {
 
   return(
-    <>
-        <Styles>
-          <input type="checkbox" defaultChecked={props.checked} />
-          <div className="nameLabel">{props.checkboxName}</div>
-        </Styles>
-    </>
+      <Styles>
+        <input type="checkbox" defaultChecked={props.checked} />
+        <div className="nameLabel">{props.checkboxName}</div>
+      </Styles>
   );
 }
 

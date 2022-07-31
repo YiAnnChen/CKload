@@ -1,27 +1,13 @@
-import React, 
-{
+import React, {
   useCallback,
   useState,
 } from 'react'
 
-import {useDropzone} from 'react-dropzone'
+import { useDropzone } from 'react-dropzone'
 import styled from 'styled-components'
 import axios from 'axios'
 
 import './styles.css'
-
-// // Redux for handling passing frontend/backend values
-// import { configureStore } from '@reduxjs/toolkit'
-
-// // 1. Create a basic Reducer
-// const rootReducer = ( currentState = 0, action ) => { 
-//   return currentState;
-// };
-
-// // 2. Create a store
-// const store = configureStore({ reducer: rootReducer });
-
-// console.log(store.getState());
 
 const Container = styled.div`
   display: flex;
@@ -117,14 +103,13 @@ function DropzoneComponent(props) {
   ));
 
   return (
-    <>
+    <React.Fragment>
       { isFileUploaded   
         // Display this after file is uploaded
-        ? <>
+        ?
         <Container uploadState={isFileUploaded}>
           <>Filename: {filename}</>
         </Container>
-        </>
         // Display this before file is uploaded
         : <Container uploadState={isFileUploaded} {...getRootProps({})}>
             <input {...getInputProps()} />
@@ -137,7 +122,7 @@ function DropzoneComponent(props) {
             </div>
           </Container>
       }
-    </>
+    </React.Fragment>
   );
 }
 
