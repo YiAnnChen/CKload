@@ -15,12 +15,16 @@ const Container = styled.div`
 function Tests() {
 
   const location = useLocation();
-  console.log(location.state.data.ThreadGroups.length)
 
-  // TODO: Error handling
-  const tg = location.state.data.ThreadGroups;
-  const tg_length = location.state.data.ThreadGroups.length;
-  
+  let tg = {
+    object: null,
+    length: 0,
+  };
+
+  if (location.state !== null) {
+    tg.object = location.state.data.ThreadGroups;
+    tg.length = location.state.data.ThreadGroups.length;
+  }
 
   return (
     <Container>
@@ -40,24 +44,35 @@ function Tests() {
       </div>
 
       {/* Uses loop to create multiple Load Config Components */}
-      { tg_length ? 
-      tg.map((data, index) =>
-      <LoadConfig key={index}
-      name='threadgroup'
-      users={data.num_threads}
-      ramp_time={data.ramp_time}
-      duration={data.duration}
-      delay={data.delay}
-      on_sampler_error={data.on_sampler_error}
-      //  Boolean values
-      same_user_on_next_iteration={data.same_user_on_next_iteration}
-      scheduler={data.scheduler}
-      delayed_start={data.delayed_start}
-      />
-      )
-      :
-      // TODO: No thread groups
-      <React.Fragment>ERROR</React.Fragment>
+      {tg.length ?
+        tg.object.map((data, index) =>
+          <LoadConfig key={index}
+            name='threadgroup'
+            users={data.num_threads}
+            ramp_time={data.ramp_time}
+            duration={data.duration}
+            delay={data.delay}
+            on_sampler_error={data.on_sampler_error}
+            //  Boolean values
+            same_user_on_next_iteration={data.same_user_on_next_iteration}
+            scheduler={data.scheduler}
+            delayed_start={data.delayed_start}
+          />
+        )
+        :
+        /* If can't find data (tg.length === 0), uses default values for display */
+        <LoadConfig
+          name='threadgroup'
+          users={20}
+          ramp_time={10}
+          duration={60}
+          delay={5}
+          on_sampler_error={"continue"}
+          //  Boolean values
+          same_user_on_next_iteration={true}
+          scheduler={true}
+          delayed_start={true}
+        />
       }
     </Container>
   )
