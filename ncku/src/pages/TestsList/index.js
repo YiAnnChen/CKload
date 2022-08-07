@@ -31,18 +31,25 @@ const TestsList = () => {
   }
 
   function createNewTest(e) {
-    /* Create New Test --> redirect to a new page */
+    /* TODO: Backend */
     console.log('creating new test');
   }
+
   return (
     <div className='testslist-container'>
       <div className='testslist-top'>
         {/* TODO: change (5) to something else using a function to calculate */}
-        <div className='list-title'><h1>Tests (5)</h1></div>
+        <div className='list-title'>
+          <h1>
+            Tests (5)
+          </h1>
+        </div>
         <div className='new-test-btn-container'>
-          <button className='new-test-btn' onClick={createNewTest}>
-            <Link to='tests'>Create Test</Link>
-          </button>
+          <Link to='testsnew'>
+            <button className='new-test-btn' onClick={createNewTest}>
+              Create Test
+            </button>
+          </Link>
         </div>
       </div>
 
@@ -72,6 +79,7 @@ const TestsList = () => {
                     state={{
                       data: data
                     }}
+                    className='list-item-btn'
                   >{data.testName}</Link>
                 </td>
                 <td className='list-item'>{data.updateDate}</td>
@@ -91,8 +99,9 @@ const TestsList = () => {
                     </div>
                   })
                 }</td>
-                <td className='list-item'><a href='#' onClick={handleRunTestClick}>▶ Run Test</a></td>
-                <td className='list-item'><a href='#' onClick={handleReportClick}>Report</a></td>
+                {/* TODO: Change the a element to something else and change cursor!!!! */}
+                <td className='list-item'><p className='list-item-btn' onClick={handleRunTestClick}>▶ Run Test</p></td>
+                <td className='list-item'><p className='list-item-btn' onClick={handleReportClick}>Report</p></td>
               </tr>
             )
             : <div>empty</div>} {/* TODO: Change this later! */}

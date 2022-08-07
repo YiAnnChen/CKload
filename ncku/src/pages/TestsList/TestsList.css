@@ -32,6 +32,7 @@
 
 .new-test-btn {
   background-color: #3d6098;
+  text-decoration: none;
   color: white;
   border: none;
   outline: none;
@@ -74,6 +75,13 @@ div.list-item {
   display: inline-block;
 }
 
-.testslist-container a {
+.list-item-btn {
+  display: inline-block;
+  padding: 1px;
   color: #0e5cd9;
+  cursor: pointer;
+}
+
+.list-item-btn:hover {
+  color: #3d6098;
 }
