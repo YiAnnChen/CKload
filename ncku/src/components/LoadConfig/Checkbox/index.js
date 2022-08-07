@@ -14,12 +14,13 @@ const Styles = styled.div`
 
 function Checkbox(props) {
 
-  return(
-      <Styles>
-        <input type="checkbox" defaultChecked={props.checked} />
-        <div className="nameLabel">{props.checkboxName}</div>
-      </Styles>
+  return (
+    <Styles>
+      <input type="checkbox" defaultChecked={props.checked} onChange={props.onChange} />
+      <div className="nameLabel">{props.checkboxName}</div>
+    </Styles>
   );
+
 }
 
 export default Checkbox;

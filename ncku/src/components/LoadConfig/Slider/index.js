@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import './styles.css'
@@ -59,25 +59,27 @@ function Slider(props) {
     setValue(e.target.value)
   }
 
-  return(
+  return (
     <>
-        <div>{props.sliderName}</div>
-        <Styles>
-          {/* <input type="range" min={props.min} max={props.max} step={props.step} value={value} className="slider" onChange={handleOnChange} /> */}
-          {/* <InputRange type="range" min={props.min} max={props.max} step={props.step} value={value} onChange={handleOnChange}/> */}
-          <input
-            type='range'
-            className='load-config-slider'
-            min={props.min}
-            max={props.max}
-            step={props.step}
-            value={value}
-            onChange={handleOnChange}
-          />
-          <div className="value">{value}</div>
-        </Styles>
+      <div>{props.sliderName}</div>
+      <Styles>
+        {/* <input type="range" min={props.min} max={props.max} step={props.step} value={value} className="slider" onChange={handleOnChange} /> */}
+        {/* <InputRange type="range" min={props.min} max={props.max} step={props.step} value={value} onChange={handleOnChange}/> */}
+        <input
+          type='range'
+          className='load-config-slider'
+          min={props.min}
+          max={props.max}
+          step={props.step}
+          value={value}
+          onChange={handleOnChange}
+          disabled={!props.isEnabled}
+        />
+        <div className="value">{value}</div>
+      </Styles>
     </>
   );
+
 }
 
 export default Slider;
