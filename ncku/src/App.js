@@ -12,11 +12,14 @@ import { useEffect, useState } from "react";
 //import './App.css';
 
 //import HNavBar from './components/HNavBar';
-import Navbar from './components/Navbar/Navbar';
+// import Navbar from './components/Navbar/Navbar';
 import Home from './pages/Home'
 import Login from './pages/Login'
 import Tests from './pages/Tests'
 import TestsList from './pages/TestsList'
+import NavbarTest from './components/NavbarTest'
+import GlobalStyle from './components/NavbarTest/globalStyle';
+import DropDown from './components/NavbarTest/DropDown';
 
 
 
@@ -27,6 +30,12 @@ export const UserContext = React.createContext();
 
 function App() {
   const [user, setUser] = useState(null);
+
+  const [isOpen,setIsOpen] = useState(false);
+
+  const toggle = () => {
+    setIsOpen(!isOpen);
+  };
 
   useEffect(() => {
     const getUser = () => {
@@ -59,17 +68,19 @@ function App() {
     <>
       
       <Router>
-      <Navbar user={user} />
+      <GlobalStyle />
+      <NavbarTest user={user} toggle={toggle} />
+      <DropDown isOpen={isOpen} toggle={toggle}/>
         <UserContext.Provider value={user}>
           <Routes>
             {/* Directly routes user to home page */}
             <Route path="/" element={<Navigate replace to="/home" />} />
             <Route path='/home' exact element = {<Home/>} />
             {/* If user is logged in, navigate to home, if not, navigate to login */}
-            <Route path='/login' exact element = {user ? <Navigate to="/" /> : <Login />} />
+            <Route path='/log-in' exact element = {user ? <Navigate to="/" /> : <Login />} />
 
             {/* /tests routes the user to the list of tests for that user */}
-            <Route path='/tests' exact element = {<TestsList />} />
+            <Route path='/test' exact element = {<TestsList />} />
             <Route path='/tests/:test_id' exact element = {<Tests />} />
 
             <Route path='/posts' />
