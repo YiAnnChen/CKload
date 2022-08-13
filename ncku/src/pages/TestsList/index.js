@@ -60,8 +60,8 @@ const TestsList = () => {
             <th>Update Date</th>
             <th>Users</th>
             <th>Duration</th>
-            <th>Actions</th>
-            <th>Reports</th>
+            <th>Action</th>
+            <th>Report</th>
           </tr>
         </thead>
         <tbody>
