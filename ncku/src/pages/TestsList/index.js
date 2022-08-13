@@ -72,7 +72,7 @@ const TestsList = () => {
                 <td className='list-item'>
                   <Link
                     to={{
-                      pathname: data.testName,
+                      pathname: '/tests/' + data.testName,
                       search: "?sort=name",
                       hash: "#the-hash"
                     }}
