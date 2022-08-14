@@ -18,11 +18,25 @@ const Styles = styled.div`
   align-items: center;
   color: #888;
   margin-bottom: 1rem;
+
   .value {
+    display: absolute;
+    width: 4rem;
     margin-left: 1rem;
-    padding: 0 1rem;
-    flex: 1;
-    font-size: 1.25rem;
+    margin-right: 5rem;
+    padding: 0.25rem;
+    font-size: 1.1rem;
+    // TODO: add transition for better looking UI
+  }
+
+  .value:hover {
+    border-color: #3d6098;
+    
+  }
+
+  .value:focus {
+    border-color: #3d6098;
+    outline: none;
   }
 
   .slider {
@@ -66,8 +80,8 @@ function Slider(props) {
         {/* <input type="range" min={props.min} max={props.max} step={props.step} value={value} className="slider" onChange={handleOnChange} /> */}
         {/* <InputRange type="range" min={props.min} max={props.max} step={props.step} value={value} onChange={handleOnChange}/> */}
         <input
-          type='range'
           className='load-config-slider'
+          type='range'
           min={props.min}
           max={props.max}
           step={props.step}
@@ -75,7 +89,16 @@ function Slider(props) {
           onChange={handleOnChange}
           disabled={!props.isEnabled}
         />
-        <div className="value">{value}</div>
+        {/* <div className="value">{value}</div> */}
+        <input
+          className='value'
+          type='number'
+          min={props.min}
+          max={props.max}
+          step={props.step}
+          value={value}
+          onChange={handleOnChange}
+        />
       </Styles>
     </>
   );
