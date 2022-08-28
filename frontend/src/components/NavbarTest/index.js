@@ -81,7 +81,7 @@ const Navbar = ({ toggle, user }) => {
     };
     return (
         <Nav>
-            <Logo to='/'>CKload</Logo>
+            <Logo to='/'>CK-Load</Logo>
             <MenuBars onClick={toggle} />
             <NavMenu>
                 {menuData.map((item, index) => (
