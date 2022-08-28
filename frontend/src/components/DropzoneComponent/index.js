@@ -37,14 +37,14 @@ const UploadImg = styled.img`
 const instance = axios.create({
   baseURL: 'https://localhost:8080/api',
   timeout: 1000,
-  headers:{
+  headers: {
     'Access-Control-Allow-Origin': 'http://localhost:3000',
   }
 });
 
 function DropzoneComponent(props) {
 
-  // State to store uploaded file
+  // Checks if file is uploaded, initially set to false
   const [isFileUploaded, setFileUploaded] = useState(false);
 
   // Handles file upload event and updates state
@@ -75,17 +75,17 @@ function DropzoneComponent(props) {
 
       /* Send jmx file to backend */
       axios
-      .post("http://localhost:8080/api/upload/jmx", file)
-      .then(function (response) {
-        console.log();
-      });
+        .post("http://localhost:8080/api/upload/jmx", file)
+        .then(function (response) {
+          console.log();
+        });
 
     })
   });
 
   const {
-    acceptedFiles, 
-    getRootProps, 
+    acceptedFiles,
+    getRootProps,
     getInputProps,
   } = useDropzone({
     onDrop,
@@ -95,7 +95,7 @@ function DropzoneComponent(props) {
       'text/jmx': ['.jmx']
     }
   });
-  
+
   const filename = acceptedFiles.map(file => (
     <div key={file.path}>
       {file.path}
@@ -104,7 +104,7 @@ function DropzoneComponent(props) {
 
   return (
     <React.Fragment>
-      { isFileUploaded   
+      {isFileUploaded
         // Display this after file is uploaded
         ?
         <Container uploadState={isFileUploaded}>
@@ -112,15 +112,15 @@ function DropzoneComponent(props) {
         </Container>
         // Display this before file is uploaded
         : <Container uploadState={isFileUploaded} {...getRootProps({})}>
-            <input {...getInputProps()} />
-            {/* Test */}
-            <div className='drop-text'>
-              {/* <UploadImg src={} alt='Upload Image' /> */}
-              <h4>Drag and drop JMX file here</h4>
-              <h4>-OR-</h4>
-              <h4>Click to browse</h4>
-            </div>
-          </Container>
+          <input {...getInputProps()} />
+          {/* Test */}
+          <div className='drop-text'>
+            {/* <UploadImg src={} alt='Upload Image' /> */}
+            <h4>Drag and drop JMX file here</h4>
+            <h4>-OR-</h4>
+            <h4>Click to browse</h4>
+          </div>
+        </Container>
       }
     </React.Fragment>
   );

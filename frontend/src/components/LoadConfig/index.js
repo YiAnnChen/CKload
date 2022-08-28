@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styled from 'styled-components';
 
 import Checkbox from "./Checkbox";
@@ -20,8 +20,10 @@ const Container = styled.div`
 
 function LoadConfig(props) {
 
-  // States
+  // Holds the sampler value, initial state is passed in with props
   const [samplerValue, setSamplerValue] = useState(props.on_sampler_error);
+
+  // A boolean that determine if "Duration" and "Startup delay" is enabled
   const [schedulerVal, setSchedulerVal] = useState(props.scheduler);
 
   // Handler functions

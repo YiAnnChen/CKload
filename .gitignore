@@ -12,3 +12,7 @@ lib/
 
 # react
 node_modules/
+
+# others
+frontend/build
+frontend/build/*
