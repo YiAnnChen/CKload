@@ -19,7 +19,5 @@
     "url": "https://github.com/YiAnnChen/CKload/issues"
   },
   "homepage": "https://github.com/YiAnnChen/CKload#readme",
-  "devDependencies": {
-    "jest": "^29.0.1"
-  }
+  "devDependencies": {}
 }
