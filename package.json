@@ -1,0 +1,25 @@
+{
+  "name": "ckload",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"hello world\" && exit 1",
+    "dev": "npm run frontend & npm run backend",
+    "frontend": "cd frontend && node_modules/react-scripts/bin/react-scripts.js start",
+    "backend": "cd backend && node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YiAnnChen/CKload.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/YiAnnChen/CKload/issues"
+  },
+  "homepage": "https://github.com/YiAnnChen/CKload#readme",
+  "devDependencies": {
+    "jest": "^29.0.1"
+  }
+}
