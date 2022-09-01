@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
+import React, { useEffect, useState } from 'react';
+import styled, { ThemeProvider } from 'styled-components';
 
 import './styles.css'
 
@@ -31,36 +31,62 @@ const Styles = styled.div`
 
   .value:hover {
     border-color: #3d6098;
-    
   }
 
   .value:focus {
     border-color: #3d6098;
     outline: none;
   }
-
-  .slider {
-    flex: 1; // changes the size of the slider bar
-    -webkit-appearance: none;
-    width: 100%;
-    height: 0.75rem;
-    border-radius: 0.5rem;
-    background: #efefef;
-    outline: none;
-
-    &::-webkit-slider-thumb {
-      -webkit-appearance: none;
-      appearance: none;
-      ${props => sliderThumbStyles(props)}
-    }
-    &::-moz-range-thumb {
-      ${props => sliderThumbStyles(props)}
-    }
-  }
 `;
 
 const InputRange = styled.input`
   flex: 1; // length of the slider bar
+  -webkit-appearance: none;
+  border-radius: 0.5rem;
+  background: linear-gradient(to right, #0e5cd9 0%, #0e5cd9 ${props => props.theme.progressPercent}%, #fff ${props => props.theme.progressPercent}%, #fff 100%);
+  transition: background 450ms ease-in;
+  height: 0.75rem;
+
+  &:hover {
+    -webkit-appearance: none;
+  }
+
+  // Chrome, Safari, Opera
+
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    background-color: #3d6098;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    cursor: pointer 
+  }
+
+  // Firefox
+
+  &::-moz-range-thumb {
+    -webkit-appearance: none;
+    background-color: #3d6098;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    cursor: pointer
+  }
+
+  &::-moz-range-progress {
+    background-color: #0e5cd9;
+    height: 0.75rem;
+    border-top-left-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+    border-top-right-radius: 0.25rem;
+    border-bottom-right-radius: 0.25rem;
+  }
+
+  &::-moz-range-track {
+
+  }
+
+  // Internet Explorer
 
 `
 
@@ -69,17 +95,30 @@ function Slider(props) {
   // States
   const [value, setValue] = useState(props.value);
 
+  // We are passing a default value for InputRange
+  InputRange.defaultProps = {
+    theme: {
+      progressPercent: ((props.value - props.min) / (props.max - props.min)) * 100
+    }
+  }
+
   function handleOnChange(e) {
     setValue(e.target.value)
+
+    let percentage = ((e.target.value - e.target.min) / (e.target.max - e.target.min)) * 100
+
+    // Chrome, Safari, Opera, Firefox, IE
+    console.log(percentage)
+    e.target.style.background = 'linear-gradient(to right, #0e5cd9 0%, #0e5cd9 ' + percentage
+      + '%, #fff ' + percentage + '%, #fff 100%)'
   }
+
 
   return (
     <>
       <div>{props.sliderName}</div>
       <Styles>
-        {/* <input type="range" min={props.min} max={props.max} step={props.step} value={value} className="slider" onChange={handleOnChange} /> */}
-        {/* <InputRange type="range" min={props.min} max={props.max} step={props.step} value={value} onChange={handleOnChange}/> */}
-        <input
+        <InputRange
           className='load-config-slider'
           type='range'
           min={props.min}
@@ -89,7 +128,7 @@ function Slider(props) {
           onChange={handleOnChange}
           disabled={!props.isEnabled}
         />
-        {/* <div className="value">{value}</div> */}
+
         <input
           className='value'
           type='number'

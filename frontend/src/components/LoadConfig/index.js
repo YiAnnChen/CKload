@@ -40,15 +40,15 @@ function LoadConfig(props) {
       <ul>
         <div className="title">Load Configuration - {props.name}</div>
         <Slider sliderName="Users" min={20} max={200} step={20} value={props.users} isEnabled={true} />
-        <Slider sliderName="Ramp-up period (seconds)" value={props.ramp_time} isEnabled={true} />
-        <Slider sliderName="Loop Count" value={0} isEnabled={true} />
+        <Slider sliderName="Ramp-up period (seconds)" value={props.ramp_time} min={0} max={100} isEnabled={true} />
+        <Slider sliderName="Loop Count" value={0} min={0} max={100} isEnabled={true} />
         <Checkbox checkboxName="Same user on each iteration" type="checkbox" checked={props.same_user_on_next_iteration} />
         <Checkbox checkboxName="Delay Thread creation until needed" type="checkbox" checked={props.delayed_start} />
       </ul>
       <ul>
         <Checkbox checkboxName="Specify Thread lifetime" name="isUserIteration" type="checkbox" checked={schedulerVal} onChange={handleScheduler} />
-        <Slider sliderName="Duration (seconds)" value={props.duration} isEnabled={schedulerVal} />
-        <Slider sliderName="Startup delay (seconds)" value={props.delay} isEnabled={schedulerVal} />
+        <Slider sliderName="Duration (seconds)" value={props.duration} min={0} max={100} isEnabled={schedulerVal} />
+        <Slider sliderName="Startup delay (seconds)" value={props.delay} min={0} max={100} isEnabled={schedulerVal} />
         <React.Fragment>
           <React.Fragment>Action to take after a Sampler error:</React.Fragment>
           <div>
