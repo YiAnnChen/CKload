@@ -32,6 +32,7 @@ const TestsList = () => {
 
   function createNewTest(e) {
     /* TODO: Backend */
+    // e.preventDefault
     console.log('creating new test');
   }
 
@@ -45,7 +46,7 @@ const TestsList = () => {
           </h1>
         </div>
         <div className='new-test-btn-container'>
-          <Link to='testsnew'>
+          <Link to='/tests/testnew'>
             <button className='new-test-btn' onClick={createNewTest}>
               Create Test
             </button>

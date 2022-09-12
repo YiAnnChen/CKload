@@ -75,9 +75,12 @@ function DropzoneComponent(props) {
 
       /* Send jmx file to backend */
       axios
-        .post("http://localhost:8080/api/upload/jmx", file)
-        .then(function (response) {
-          console.log();
+        .post("http://localhost:8000/api/upload/jmx", file)
+        .then(res => {
+          console.log(res);
+        })
+        .catch(err => {
+          console.log(err);
         });
 
     })
@@ -108,7 +111,7 @@ function DropzoneComponent(props) {
         // Display this after file is uploaded
         ?
         <Container uploadState={isFileUploaded}>
-          <>Filename: {filename}</>
+          <React.Fragment>Filename: {filename}</React.Fragment>
         </Container>
         // Display this before file is uploaded
         : <Container uploadState={isFileUploaded} {...getRootProps({})}>

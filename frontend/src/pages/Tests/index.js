@@ -8,7 +8,7 @@ import LoadConfig from '../../components/LoadConfig'
 import './index.css'
 
 const Container = styled.div`
-  justify-content: center;
+  // justify-content: center;
   padding: 1rem;
 `
 
@@ -32,12 +32,11 @@ function Tests() {
         <DropzoneComponent />
         <div className='test-attr'>
           <div className='test-name'>
-            {/* Change Jmeter Test 1 to date */}
+            {/* TODO: Change test to current date */}
             <div className='test-name-border'>10_July_2022_21:56&nbsp;✎</div>
           </div>
           <div className='test-btns-list'>
             <button className='test-btns'>Save</button>
-            <></>
             <button className='test-btns'>Save & Run</button>
           </div>
         </div>

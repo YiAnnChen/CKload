@@ -15,7 +15,8 @@ const Nav = styled.nav`
     z-index:100;
     position:flex;
     width:100%;
-    background: #E3E3E3;
+    // background: #E3E3E3;
+    background: white;
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
 `;
 
@@ -55,7 +56,7 @@ const MenuBars = styled.i`
 const NavMenu = styled.div`
     display: flex;
     align-items:center;
-    margin-right:-48px;
+    margin: 0 auto 0 auto;
 
     @media screen and (max-width: 786px){
         display:none;
@@ -92,9 +93,16 @@ const Navbar = ({ toggle, user }) => {
                 }
             </NavMenu>
             <NavBtn>
-                <Button to='/login' primary='true'>
-                    Log in
-                </Button>
+                {user ?
+                    <Button to='/' primary='true' onClick={logout}>
+                        Log out
+                    </Button>
+                    :
+                    <Button to='/login' primary='true'>
+                        Log in
+                    </Button>
+                }
+
             </NavBtn>
         </Nav>
     );

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 
 import './styles.css'
@@ -43,7 +43,7 @@ const InputRange = styled.input`
   flex: 1; // length of the slider bar
   -webkit-appearance: none;
   border-radius: 0.5rem;
-  background: linear-gradient(to right, #0e5cd9 0%, #0e5cd9 ${props => props.theme.progressPercent}%, #fff ${props => props.theme.progressPercent}%, #fff 100%);
+  background: linear-gradient(to right, #0e5cd9 0%, #0e5cd9 ${props => props.theme.progressPercent}%, #ececec ${props => props.theme.progressPercent}%, #ececec 100%);
   transition: background 450ms ease-in;
   height: 0.75rem;
 
@@ -94,6 +94,7 @@ function Slider(props) {
 
   // States
   const [value, setValue] = useState(props.value);
+  const inputRangeRef = useRef(null);
 
   // We are passing a default value for InputRange
   InputRange.defaultProps = {
@@ -108,9 +109,8 @@ function Slider(props) {
     let percentage = ((e.target.value - e.target.min) / (e.target.max - e.target.min)) * 100
 
     // Chrome, Safari, Opera, Firefox, IE
-    console.log(percentage)
-    e.target.style.background = 'linear-gradient(to right, #0e5cd9 0%, #0e5cd9 ' + percentage
-      + '%, #fff ' + percentage + '%, #fff 100%)'
+    inputRangeRef.current.style.background = 'linear-gradient(to right, #0e5cd9 0%, #0e5cd9 '
+      + percentage + '%, #ececec ' + percentage + '%, #ececec 100%)';
   }
 
 
@@ -119,6 +119,7 @@ function Slider(props) {
       <div>{props.sliderName}</div>
       <Styles>
         <InputRange
+          ref={inputRangeRef}
           className='load-config-slider'
           type='range'
           min={props.min}

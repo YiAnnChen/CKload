@@ -1,11 +1,11 @@
 import "./intro.css"
-import React, { Component }  from 'react';
+import React from 'react';
 import ReactPlayer from "react-player/youtube";
-const Intro = () =>{
-    return(
-        <div  className="home">
-      
-        <div className="home-left">
+const Intro = () => {
+  return (
+    <div className="home">
+
+      <div className="home-left">
         <div className="home-left-wrapper">
           <h2 className="home-intro">Welcome, The website is</h2>
           <h1 className="home-name">CK-Load</h1>
@@ -35,15 +35,15 @@ const Intro = () =>{
         </svg>
       </div>
       <div className="home-right">
-      <div className="home-bg"></div>
-      <div className="vedio">
-      <ReactPlayer width ='480px' height='240px' controls url="https://www.youtube.com/watch?v=DqcpTT06ChE"/>
-      </div>
-       
+        <div className="home-bg"></div>
+        <div className="vedio">
+          <ReactPlayer width='480px' height='240px' controls url="https://www.youtube.com/watch?v=DqcpTT06ChE" />
+        </div>
+
       </div>
     </div>
-        
-    );
+
+  );
 };
 
 export default Intro;
