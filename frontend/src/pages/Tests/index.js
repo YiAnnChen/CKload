@@ -8,8 +8,18 @@ import LoadConfig from '../../components/LoadConfig'
 import './index.css'
 
 const Container = styled.div`
-  // justify-content: center;
+  justify-content: center;
   padding: 1rem;
+`
+
+const DropzoneContainer = styled.div`
+  display: flex;
+  justify-content: center;
+`
+
+const TestAttrContainer = styled.div`
+  display: flex;
+  justify-content: center;
 `
 
 function Tests() {
@@ -28,19 +38,27 @@ function Tests() {
 
   return (
     <Container>
-      <div className='align-column-container'>
+      {/* <div className='align-column-container'> */}
+
+      <DropzoneContainer>
         <DropzoneComponent />
-        <div className='test-attr'>
+      </DropzoneContainer>
+
+      <TestAttrContainer>
+        <button className='test-btns'>Save</button>
+        <button className='test-btns'>Save & Run</button>
+      </TestAttrContainer>
+
+      {/* <div className='test-attr'>
           <div className='test-name'>
-            {/* TODO: Change test to current date */}
             <div className='test-name-border'>10_July_2022_21:56&nbsp;✎</div>
           </div>
           <div className='test-btns-list'>
             <button className='test-btns'>Save</button>
             <button className='test-btns'>Save & Run</button>
           </div>
-        </div>
-      </div>
+        </div> */}
+      {/* </div> */}
 
       {/* Uses loop to create multiple Load Config Components */}
       {tg.length ?

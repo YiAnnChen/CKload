@@ -2,6 +2,39 @@
   text-align: center;
 }
 
+.drop-text h3 {
+  margin: 0;
+}
+
 .drop-text h4 {
-  margin-bottom: -1rem;
+  margin: 0;
+}
+
+.button-upload {
+  height: 37.5px;
+  width: 135px;
+  margin: 4px;
+  background-color: #0e5cd9;
+  border: none;
+  border-radius: 3px;
+  padding: 5px 22px 5px 22px;
+  color: white;
+  cursor: pointer;
+}
+
+.button-upload h3 {
+  height: 100%;
+  width: 100%;
+  font-size: 85%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 1px;
+  word-spacing: 2px;
+
+}
+
+.img-upload {
+  height: 70px;
+  width: auto;
 }

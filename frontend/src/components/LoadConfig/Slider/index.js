@@ -3,15 +3,6 @@ import styled, { ThemeProvider } from 'styled-components';
 
 import './styles.css'
 
-const sliderThumbStyles = (props) => (`
-  width: 1.2rem;
-  height: 1.25rem;
-  background: #fff;
-  cursor: pointer;
-  box-shadow: rgba(0, 9, 70, 0.4) 1px 4px 8px 0px;
-  border-color: light-gray;
-  border-radius: 50%;
-`);
 
 const Styles = styled.div`
   display: flex; 
@@ -115,7 +106,7 @@ function Slider(props) {
 
 
   return (
-    <>
+    <React.Fragment>
       <div>{props.sliderName}</div>
       <Styles>
         <InputRange
@@ -140,7 +131,7 @@ function Slider(props) {
           onChange={handleOnChange}
         />
       </Styles>
-    </>
+    </React.Fragment>
   );
 
 }

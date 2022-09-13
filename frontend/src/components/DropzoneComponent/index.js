@@ -7,31 +7,28 @@ import { useDropzone } from 'react-dropzone'
 import styled from 'styled-components'
 import axios from 'axios'
 
+import uploadImg from './../../imgs/upload.png'
 import './styles.css'
 
 const Container = styled.div`
+  height: 220px;
+  width: 800px;
   display: flex;
-  width: 40%;
   justify-content: center;
-  margin: 2.5rem 2rem 2.5rem auto;
-  padding: 20px;
-  // border-color: #c60021;
+  padding: 20px 0 20px 0;
+  margin: 20px 0 20px 0;
   border-style: solid;
   border-radius: 20px;
-  // -webkit-box-shadow: 0px 5px 33px -21px rgba(66, 68, 90, 1);
-  // -moz-box-shadow: 0px 5px 33px -21px rgba(66, 68, 90, 1);
-  // box-shadow: 0px 5px 33px -21px rgba(66, 68, 90, 1);
-  outline: none;
-  cursor: ${props => props.uploadState ? "default" : "pointer"};
+  border-color: #0e5cd9;
+  outline: 0.5px dashed #0e5cd9;
+  outline-offset: -10px;
+  // cursor: ${props => props.uploadState ? "default" : "pointer"};
 
-  border-color: white;
+
   color: #3d6098;
-  background-color: white;
-  box-shadow: rgba(0, 9, 61, 0.2) 0px 4px 8px 0px;
-`
 
-const UploadImg = styled.img`
-  height: 10%;
+  // Hex: #eaf2ff
+  background-color: rgba(234,242,255,0.5);
 `
 
 const instance = axios.create({
@@ -106,7 +103,7 @@ function DropzoneComponent(props) {
   ));
 
   return (
-    <React.Fragment>
+    <div>
       {isFileUploaded
         // Display this after file is uploaded
         ?
@@ -114,18 +111,20 @@ function DropzoneComponent(props) {
           <React.Fragment>Filename: {filename}</React.Fragment>
         </Container>
         // Display this before file is uploaded
-        : <Container uploadState={isFileUploaded} {...getRootProps({})}>
-          <input {...getInputProps()} />
-          {/* Test */}
+        : <Container uploadState={isFileUploaded}>
           <div className='drop-text'>
-            {/* <UploadImg src={} alt='Upload Image' /> */}
-            <h4>Drag and drop JMX file here</h4>
-            <h4>-OR-</h4>
-            <h4>Click to browse</h4>
+            <img className='img-upload' src={uploadImg} alt="Upload img" />
+            <h3>Drag and drop your file here</h3>
+            <h4>or</h4>
+            <button className='button-upload' {...getRootProps({})}>
+              <input {...getInputProps()} />
+              <h3>UPLOAD FILE</h3>
+            </button>
+            <h4>(jmx)</h4>
           </div>
         </Container>
       }
-    </React.Fragment>
+    </div>
   );
 }
 

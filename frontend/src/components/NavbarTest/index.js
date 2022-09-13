@@ -3,44 +3,41 @@ import styled, { css } from 'styled-components/macro';
 import { Link } from 'react-router-dom';
 import { menuData } from '../../data/MenuData';
 import { Button } from './Button';
-import Bars from './4646965-200.png'
-
-
+import Bars from '../../imgs/bars.png'
 
 const Nav = styled.nav`
-    height:60px;
-    display:flex;
-    justify-content:space-between;
-    padding:1 2rem;
-    z-index:100;
-    position:flex;
-    width:100%;
-    // background: #E3E3E3;
+    height: 60px;
+    display: flex;
+    padding: 1 2rem;
+    z-index: 100;
+    position: flex;
+    width: 100%;
     background: white;
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
-`;
+`
 
 const NavLink = css`
-    color:#c60021;
-    display:flex;
-    align-items:center;
-    height:100%;
-    padding:0 1rem;
+    color: #c60021;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 0 1rem;
     cursor: pointer;
-    text-decoration:none;
+    text-decoration: none;
 `
 
 const Logo = styled(Link)`
     ${NavLink}
     font-family: 'Montserrat', sans-serif;
     font-weight: bolder;
-    font-size:40px;
+    font-size: 40px;
     text-shadow: gray 0.1em 0.1em 0.2em
-`;
-const MenuBars = styled.i`
-    display:none;
+`
 
-    @media screen and (max-width: 768px){
+const MenuBars = styled.i`
+    display: none;
+
+    @media screen and (max-width: 768px) {
         display:block;
         background-image:url(${Bars});
         background-size: contain;
@@ -52,29 +49,31 @@ const MenuBars = styled.i`
         right:0;
         transform: translate(-50%,25%);
     }
-`;
+`
+
 const NavMenu = styled.div`
     display: flex;
-    align-items:center;
+    align-items: center;
     margin: 0 auto 0 auto;
 
-    @media screen and (max-width: 786px){
+    @media screen and (max-width: 786px) {
         display:none;
     }
-`;
+`
+
 const NavMenuLinks = styled(Link)`
     ${NavLink}
-`;
+`
 
 const NavBtn = styled.div`
-    display:flex;
-    align-items:center;
-    margin-right:24px;
+    display: flex;
+    align-items: center;
+    margin-right: 24px;
 
-    @media screen and (max-width: 786px){
-        display:none;
-        }
-`;
+    @media screen and (max-width: 786px) {
+        display: none;
+    }
+`
 
 const Navbar = ({ toggle, user }) => {
     const logout = () => {
@@ -102,10 +101,9 @@ const Navbar = ({ toggle, user }) => {
                         Log in
                     </Button>
                 }
-
             </NavBtn>
         </Nav>
-    );
-};
+    )
+}
 
-export default Navbar;
+export default Navbar

@@ -8,13 +8,10 @@ import './index.css'
 
 const Container = styled.div`
   display: absolute;
-  margin: auto auto 2rem auto;
+  margin: 2rem auto 2rem auto;
   width: 50%;
   padding: 20px;
   align-items: center;
-  // -webkit-box-shadow: 0px 5px 33px -21px #891919;
-  // -moz-box-shadow: 0px 5px 33px -21px #891919;
-  // box-shadow: 0px 5px 33px -21px #891919;
   box-shadow: rgba(0, 9, 61, 0.2) 0px 4px 8px 0px;
 `
 
